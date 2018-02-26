@@ -1,0 +1,388 @@
+<!doctype html >
+<html>
+	<head>
+	<meta charset="utf-8">
+	<form style="background-color:#FFC0CB"></h1>
+	<b><center>INVENTORY DETAILS</b><br>
+	<title>management</title>
+	<script src="web3.min.js"></script>
+</head>
+<body>
+	<center>
+	<h1 style="color:blue;">PARKER PEN</h1>
+	
+<style>
+p
+{
+
+    font-family: verdana;
+    font-size: 20px;
+    color:#000000;
+}
+
+</style>
+	SETPRODUCTS:
+	<table border="1">
+		<tr>  <td>address:<input type="text" id="a1" value=" "/> </td></tr>
+		<tr>  <td>productname:<input type="text" id="a2" value=" "/></td></tr>
+		<tr>  <td>productid:<input type="text" id="a3" value=" "/></td></tr>
+		<tr>  <td>count:<input type="text" id="a4" value=" "/></td></tr>
+		<tr>  <td>amount:<input type="text" id="a5" value=" "/></td></tr>
+		<tr>  <td>products:<button type="button" onclick="setproducts()">click</button></td></tr><br>
+	</table><br>
+
+
+	AVAILABLE:
+	<table border="1">
+		<tr>  <td><input type="text" id="a6" value=" "></td></tr>
+		<tr>  <td>productid:<input type="text" id="a7" value=" "></td></tr>
+		<tr>  <td><button type="button" onclick="avai()">click</button></td></tr><br>
+	</table><br>
+	
+	
+	ALERT:<br>
+	<table border="1">
+		<tr><td><input type="text" id="w1" value=" "></td></tr>
+		<tr><td>updateproducts:<input type="text" id="w2" value=" "></td></tr>
+		<tr><td>msgalert:<input type="text" id="w3" value=" "></td></tr>
+		<tr>  <td><button type="button" onclick="adm()">click</button></td></tr><br>	
+		</table><br>
+
+		
+</form>
+<script>
+
+	web3.eth.defaultAccount = web3.eth.accounts[0];
+	var invent=web3.eth.contract([
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"name": "productids",
+				"type": "uint256"
+			}
+		],
+		"name": "avai",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "total_supply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"name": "totalproducts",
+				"type": "uint256"
+			},
+			{
+				"name": "totalprice",
+				"type": "uint256"
+			}
+		],
+		"name": "buy",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "tokenOwner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "aaa",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_pid",
+				"type": "uint256"
+			},
+			{
+				"name": "updateproducts",
+				"type": "uint256"
+			},
+			{
+				"name": "msgalert",
+				"type": "string"
+			}
+		],
+		"name": "adm",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"name": "productname",
+				"type": "string"
+			},
+			{
+				"name": "productid",
+				"type": "uint256"
+			},
+			{
+				"name": "count",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "setproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	}
+]);
+	var inventory=invent.at('0x9963bb811974f28d26f20e527fe27744a8bdb60c');
+
+
+if(!web3.isConnected()) {
+  
+        console.log("Ok");
+        
+      } else {
+        console.log("no");
+      }
+      web3.version.getNetwork((err, netId) => {
+            switch (netId) {
+              case "1":
+                console.log('This is mainnet')
+                break
+              case "2":
+                console.log('This is the deprecated Morden test network.')
+                break
+              case "3":
+                console.log('This is the ropsten test network.')
+                break
+              case "4":
+                console.log('This is the Rinkeby test network.')
+                break
+              case "42":
+                console.log('This is the Kovan test network.')
+                break
+              default:
+                console.log('This is an unknown network.')
+            }
+        })
+
+function setproducts()
+{
+ 	var s1=document.getElementById("a1").value;
+	var s2=document.getElementById("a2").value;
+	var s3=document.getElementById("a3").value;
+	var s4=document.getElementById("a4").value;
+	var s5=document.getElementById("a5").value;
+	inventory.setproducts (s1,s2,s3,s4,s5, function(error,result){
+	if(!error)
+	{
+	console.log("result");
+	}
+	else
+	{
+	alert(result);	
+	}
+	});
+}
+
+
+function avai()
+{
+	var z1=document.getElementById("a6").value;
+	var z2=document.getElementById("a7").value;
+	inventory.avai(z1,z2, function(error,result){
+	if(!error)
+	{
+	console.log("result");
+	}
+	else
+	{
+	alert(result);
+	}
+});
+}
+
+
+
+function adm()
+{
+	var r1=document.getElementById("w1").value;
+	var r2=document.getElementById("w2").value;
+	var r3=document.getElementById("w3").value;
+	inventory.adm(r1,r2,r3,function(error,result){	
+	if(!error)
+	{
+	console.log("alert");
+	}
+	alert(result);
+	});
+}
+
+
+</script>
+</center>
+</body>
+</html>
