@@ -1,0 +1,311 @@
+<!doctype html >
+<head> 
+
+<script src="web3.min.js"></script>
+
+<meta charset="utf-8">
+<form style="background-color:#FFC0CB"></h1>
+
+<title> WELCOME TO PARKER </title>
+
+<h1 style="color:violet;" > <center> PARKER PENS </center> </h1>
+<center><img src="images.jpg" width="30%">
+</head>
+
+<body>
+
+<p id="date" ></p>
+<script>
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = "Date: "+ d + ""+  m  +""+ y;
+</script>
+
+  
+	<center>
+		
+		<h2 style="color:blue;">Send ethers to buy tokens</h2>
+	
+		<table border="0" width="10%">
+
+<tr><td> </tr></ td> 
+
+		 <tr><td> 
+		 Enter  Your Accout Number: </td> </tr> 
+<tr><td> </tr></ td> 
+		<tr><td> <input type="text" placeholder="Account Number" id="account"> </td> </tr>
+<tr><td> </tr></ td> 
+		<tr><td> Specify Ether Amount To Send: </td> </tr>
+<tr><td> </tr></ td> 
+		<tr><td> <input type="text" placeholder="Ether value..." id="Rs"> </td> </tr>
+<tr><td> </tr></ td> 
+		<tr><td> <input type="button" onclick="Tokens()" value="Send"> <tr><td>
+	</center>
+
+	<script>
+		web3.eth.defaultAccount
+		var invent=web3.eth.contract([
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"name": "productids",
+				"type": "uint256"
+			}
+		],
+		"name": "avai",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "total_supply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"name": "totalproducts",
+				"type": "uint256"
+			},
+			{
+				"name": "totalprice",
+				"type": "uint256"
+			}
+		],
+		"name": "buy",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "tokenOwner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "aaa",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_pid",
+				"type": "uint256"
+			},
+			{
+				"name": "updateproducts",
+				"type": "uint256"
+			},
+			{
+				"name": "msgalert",
+				"type": "string"
+			}
+		],
+		"name": "adm",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"name": "productname",
+				"type": "string"
+			},
+			{
+				"name": "productid",
+				"type": "uint256"
+			},
+			{
+				"name": "count",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "setproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	}
+]);
+		
+		var inventory=invent.at('0x9963bb811974f28d26f20e527fe27744a8bdb60c');
+
+		
+		function Tokens()
+		{
+		var ft=document.getElementById("Rs").value;
+		ft=web3.toWei(ft, "ether");
+		web3.eth.defaultAccount=document.getElementById("account").value;
+		inventory.aaa({value:ft}, function(err,result){ if(!err) 
+
+alert(result);
+window.location="Customerpage.html"; });	
+		}
+	</script>
+  </body>
+</html>
+	
+
